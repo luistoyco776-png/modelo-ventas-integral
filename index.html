@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modelo de Crecimiento de Ventas</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- HEADER -->
+    <div class="sidebar-header">
+      <div class="logo">📊</div>
+      <h2>Modelo de Crecimiento de Ventas</h2>
+    </div>
+
+    <!-- 📦 DATO BASE (contexto real) -->
+    <label>Ventas iniciales por periodo</label>
+    <input type="number" id="baseSales" placeholder="Ej: 100">
+
+    <!-- 📈 MODELO MATEMÁTICO -->
+    <label>Modelo de crecimiento (tasa de ventas)</label>
+    <select id="growthModel">
+      <option value="">Selecciona un modelo</option>
+      <option value="slow">Crecimiento lento</option>
+      <option value="medium">Crecimiento moderado</option>
+      <option value="fast">Crecimiento rápido</option>
+      <option value="expo">Crecimiento exponencial</option>
+    </select>
+
+    <!-- 🧠 FUNCIÓN GENERADA -->
+    <label>Función de crecimiento generada</label>
+    <div class="function-box" id="functionBox">
+      Esperando configuración del modelo...
+    </div>
+
+    <!-- ⏱ INTERVALO -->
+    <label>Tiempo inicial</label>
+    <input type="number" id="startTime" placeholder="0">
+
+    <label>Tiempo final</label>
+    <input type="number" id="endTime" placeholder="10">
+
+    <!-- 🗓 UNIDAD DE TIEMPO -->
+    <label>Unidad de tiempo</label>
+    <select id="timeUnit">
+      <option value="days">Días</option>
+      <option value="weeks">Semanas</option>
+      <option value="months">Meses</option>
+    </select>
+
+    <!-- 🚀 BOTÓN -->
+    <button id="calcBtn" disabled>
+      Calcular ventas acumuladas
+    </button>
+
+    <!-- 📊 RESULTADOS -->
+    <div class="result">
+  <h3>Resultado</h3>
+  <p id="salesOut">📦 Ventas acumuladas: ---</p>
+  <p id="integralOut">📈 Integral: ---</p>
+    </div>
+
+  </aside>
+
+  <!-- GRÁFICO -->
+  <main class="graph-area">
+
+    <div class="graph-wrapper">
+
+  <div
+    class="particle-layer"
+    id="particleLayer"
+  ></div>
+
+  <div
+    class="graph-box"
+    id="graph-box"
+  >
+
+    <canvas id="graphCanvas"></canvas>
+
+  </div>
+
+</div>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

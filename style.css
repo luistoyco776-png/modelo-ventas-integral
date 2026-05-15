@@ -1,0 +1,550 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+
+  height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255, 80, 120, 0.65), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(255, 210, 70, 0.55), transparent 50%),
+    radial-gradient(circle at 35% 80%, rgba(150, 90, 255, 0.75), transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(255, 120, 60, 0.55), transparent 55%),
+    linear-gradient(120deg, #f7f2ff, #fff1f1, #f4eaff);
+
+  background-size: 240% 240%;
+  animation: bgFlow 14s ease-in-out infinite alternate;
+
+  filter: saturate(1.15) contrast(1.05);
+}
+
+@keyframes bgFlow {
+  0% {
+    background-position: 0% 40%;
+  }
+
+  50% {
+    background-position: 100% 60%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,0.15),
+      transparent 60%
+    );
+
+  pointer-events: none;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 25%;
+  min-width: 320px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  height: 100vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: rgba(245, 240, 195, 0.88);
+
+  backdrop-filter: blur(14px);
+
+  border-right: 1px solid rgba(139, 87, 211, 0.25);
+
+  box-shadow:
+    inset -1px 0 0 rgba(255,255,255,0.6),
+    8px 0 25px rgba(20,10,40,0.18),
+    0 0 40px rgba(60,20,120,0.06);
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(168,85,247,0.45);
+  border-radius: 10px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 10px;
+  margin-bottom: 10px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ef4444,
+      #dc2626
+    );
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 12px 30px rgba(220,38,38,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.18);
+
+  color: white;
+  font-size: 18px;
+}
+
+.sidebar-header h2 {
+  color: #fff5f5;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* =========================
+   LABELS
+========================= */
+
+.sidebar label {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.sidebar input,
+.sidebar select {
+  padding: 11px 12px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,213,194,0.9);
+
+  background: rgba(255,250,245,0.9);
+
+  outline: none;
+
+  font-size: 13px;
+
+  transition: 0.2s;
+
+  box-shadow:
+    inset 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.sidebar input:focus,
+.sidebar select:focus {
+  border-color: #a855f7;
+
+  box-shadow:
+    0 0 0 2px rgba(168,85,247,0.2);
+}
+
+/* =========================
+   FUNCTION BOX
+========================= */
+
+.function-box {
+  padding: 12px 14px;
+
+  border-radius: 14px;
+
+  min-height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168,85,247,0.18),
+      rgba(79,70,229,0.10)
+    );
+
+  border: 1px solid rgba(168,85,247,0.35);
+
+  color: #4c1d95;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 25px rgba(79,70,229,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.55);
+
+  transition: 0.25s ease;
+}
+
+.function-box.active {
+  border: 1px solid rgba(168,85,247,0.55);
+
+  box-shadow:
+    0 15px 35px rgba(124,58,237,0.18),
+    0 0 25px rgba(168,85,247,0.12);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.sidebar button {
+  margin-top: 8px;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  color: #1f2937;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fbbf24,
+      #f59e0b
+    );
+
+  box-shadow:
+    0 10px 20px rgba(245,158,11,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  transition: 0.25s ease;
+}
+
+.sidebar button:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
+
+  color: white;
+
+  box-shadow:
+    0 14px 30px rgba(79,70,229,0.35),
+    0 0 25px rgba(124,58,237,0.25);
+}
+
+.sidebar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result {
+  margin-top: 20px;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  background: rgba(236,253,245,0.85);
+
+  border: 1px solid #bbf7d0;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.result h3 {
+  margin-bottom: 10px;
+  color: #15803d;
+}
+
+/* =========================
+   GRAPH AREA
+========================= */
+
+.graph-area {
+  width: 75%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+
+  background: rgba(255,250,240,0.22);
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   GRAPH BOX
+========================= */
+
+.graph-box {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 24px;
+
+  border: 1px solid rgba(255,255,255,0.22);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.04)
+    );
+
+  backdrop-filter: blur(22px);
+
+  box-shadow:
+    0 25px 60px rgba(10,10,40,0.22),
+    0 0 80px rgba(168,85,247,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+/* ambient light */
+
+.graph-box::after {
+  content: "";
+
+  position: absolute;
+  inset: -20%;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(239,68,68,0.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(168,85,247,0.18), transparent 35%),
+    radial-gradient(circle at 60% 70%, rgba(255,210,70,0.12), transparent 30%);
+
+  animation: graphAmbient 12s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+@keyframes graphAmbient {
+  0% {
+    transform: translateX(-2%) translateY(-2%) scale(1);
+  }
+
+  100% {
+    transform: translateX(2%) translateY(2%) scale(1.08);
+  }
+}
+
+/* glass reflection */
+
+.graph-box::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255,255,255,0.28) 20%,
+      rgba(255,255,255,0.03) 40%,
+      transparent 60%
+    );
+
+  transform: translateX(-100%);
+
+  transition: 0.6s ease;
+}
+
+.graph-box:hover::before {
+  transform: translateX(100%);
+}
+
+.graph-wrapper {
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   CANVAS
+========================= */
+
+#graphCanvas {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  border-radius: 24px;
+}
+
+@keyframes graphPulse {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 35px 80px rgba(15, 10, 35, 0.34),
+      0 0 120px rgba(168, 85, 247, 0.14);
+  }
+
+  50% {
+    transform: scale(1.01);
+    box-shadow:
+      0 45px 110px rgba(239, 68, 68, 0.25),
+      0 0 160px rgba(168, 85, 247, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.graph-box.pulse {
+  animation: graphPulse 0.6s ease-out;
+}
+
+.particle-layer {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+
+  z-index: 10;
+}
+
+.energy-particle {
+
+  position: absolute;
+
+  border-radius: 999px;
+
+  pointer-events: none;
+
+  filter: blur(1px);
+
+  animation:
+    particleFly 1.4s ease-out forwards;
+}
+
+/* glow cinematic */
+
+.energy-particle::after {
+
+  content: "";
+
+  position: absolute;
+  inset: -6px;
+
+  border-radius: inherit;
+
+  background: inherit;
+
+  filter: blur(6px);
+
+  opacity: 0.6;
+}
+
+@keyframes particleFly {
+
+  0% {
+
+    transform:
+      translate(0px, 0px)
+      scale(1);
+
+    opacity: 1;
+  }
+
+  100% {
+
+    transform:
+      translate(
+        var(--tx),
+        var(--ty)
+      )
+      scale(0.2);
+
+    opacity: 0;
+  }
+}
