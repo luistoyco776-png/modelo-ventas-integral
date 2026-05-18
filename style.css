@@ -598,15 +598,19 @@ body::before {
   }
 }
 
-@media (max-width: 900px) {
+/* =========================
+   MOBILE PERFORMANCE MODE
+========================= */
+
+@media (pointer: coarse) {
 
   body {
 
-    animation: none;
+    animation: none !important;
 
-    background-size: 100% 100%;
+    background-size: 100% 100% !important;
 
-    filter: saturate(1.05) contrast(1.02);
+    filter: saturate(1.02) contrast(1.01) !important;
   }
 
   .sidebar,
@@ -614,24 +618,24 @@ body::before {
   .graph-box,
   .function-box {
 
-    backdrop-filter: none;
+    backdrop-filter: none !important;
   }
 
   .graph-box {
 
     box-shadow:
-      0 10px 30px rgba(10,10,40,0.18);
-  }
-
-  .energy-particle,
-  .energy-particle::after {
-
-    display: none;
+      0 8px 20px rgba(10,10,40,0.15) !important;
   }
 
   .graph-box::after,
   .graph-box::before {
 
-    display: none;
+    display: none !important;
+  }
+
+  .energy-particle,
+  .energy-particle::after {
+
+    display: none !important;
   }
 }
