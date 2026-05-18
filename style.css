@@ -548,3 +548,52 @@ body::before {
     opacity: 0;
   }
 }
+
+@media (max-width: 900px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    max-height: 45vh;
+    overflow-y: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(139, 87, 211, 0.25);
+  }
+
+  .graph-area {
+    width: 100%;
+    height: 55vh;
+    padding: 12px;
+  }
+
+  .graph-box {
+    height: 100%;
+    border-radius: 18px;
+  }
+
+  .sidebar-header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .sidebar-header h2 {
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .sidebar input,
+  .sidebar select,
+  .sidebar button {
+    font-size: 14px;
+  }
+}
