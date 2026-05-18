@@ -270,7 +270,10 @@ function plotFunction(f, a, b) {
   const h = canvas.clientHeight;
 
   const padding = 70;
-  const steps = 240;
+  const steps =
+  window.innerWidth < 900
+    ? 120
+    : 240;
 
   const points = [];
 
